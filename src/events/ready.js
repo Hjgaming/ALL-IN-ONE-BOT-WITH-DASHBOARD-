@@ -3,12 +3,16 @@ const { cacheReactionRoles } = require("@schemas/Message");
 const { getSettings } = require("@schemas/Guild");
 const { updateCounterChannels } = require("@src/handlers/counter");
 const { PRESENCE } = require("@root/config");
+const eventReminders = require("../helpers/eventReminders");
 
 /**
  * @param {import('@src/structures').BotClient} client
  */
 module.exports = async (client) => {
   client.logger.success(`Logged in as ${client.user.tag}! (${client.user.id})`);
+
+  // Initialize event reminders
+  eventReminders.init(client);
 
   // Initialize Music Manager
   client.logger.log("Initializing music manager");

@@ -115,6 +115,12 @@ const Schema = mongoose.Schema({
     },
   },
   autorole: String,
+  events: {
+    reminder_time: {
+      type: Number,
+      default: 0,
+    },
+  },
 });
 
 const Model = mongoose.model("guild", Schema);
@@ -147,4 +153,11 @@ module.exports = {
     cache.add(guild.id, guildData);
     return guildData;
   },
+
+  getEventReminderGuilds: async () =>
+    Model.find({
+      "events.reminder_time": { $gt: 0 },
+    })
+      .select("_id events.reminder_time")
+      .lean(),
 };

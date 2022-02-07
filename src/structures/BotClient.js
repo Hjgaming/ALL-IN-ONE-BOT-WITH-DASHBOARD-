@@ -19,6 +19,7 @@ module.exports = class BotClient extends Client {
         Intents.FLAGS.GUILD_PRESENCES,
         Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
         Intents.FLAGS.GUILD_VOICE_STATES,
+        Intents.FLAGS.GUILD_SCHEDULED_EVENTS,
       ],
       partials: ["USER", "MESSAGE", "REACTION"],
       allowedMentions: {
@@ -53,6 +54,7 @@ module.exports = class BotClient extends Client {
     this.inviteCache = new Collection(); // store invite data for invite tracking
     this.antiScamCache = new Collection(); // store message data for anti_scam feature
     this.flagTranslateCache = new Collection(); // store translated messages
+    this.eventReminders = new Collection(); // store guilds with events reminders
 
     // initialize webhook for sending guild join/leave details
     this.joinLeaveWebhook = process.env.JOIN_LEAVE_LOGS
