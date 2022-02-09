@@ -83,20 +83,22 @@ async function setReminderTime(guild, time) {
   }
 
   const settings = await getSettings(guild);
-  settings.event.reminder_time = time;
+  settings.events.reminder_time = time;
   await settings.save();
 
   // Add to cache
-  const events = await guild.scheduledEvents.fetch();
-  events
-    .filter((e) => e.status === "SCHEDULED" && e.scheduledStartAt.getTime() > Date.now())
-    .forEach((e) => {
-      guild.client.eventReminders.set(e.id, {
-        guild,
-        event: e,
-        remindAt: e.scheduledStartAt.getTime() - time * 60 * 1000,
+  if (time != 0) {
+    const events = await guild.scheduledEvents.fetch();
+    events
+      .filter((e) => e.status === "SCHEDULED" && e.scheduledStartAt.getTime() > Date.now())
+      .forEach((e) => {
+        guild.client.eventReminders.set(e.id, {
+          guild,
+          event: e,
+          remindAt: e.scheduledStartAt.getTime() - time * 60 * 1000,
+        });
       });
-    });
+  }
 
   return `Event reminder ${time == 0 ? "is disabled" : "will now be sent before `" + time + "` minutes"}`;
 }
