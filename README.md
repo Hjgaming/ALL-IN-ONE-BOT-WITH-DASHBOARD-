@@ -6,7 +6,8 @@
 
 > Demo Bot: [Invite Here](https://discord.com/oauth2/authorize?client\_id=752922609733337190\&permissions=397602323830\&scope=bot%20applications.commands)
 >
-> Support Server: [Join Here](https://discord.gg/fE75UShbqB)
+> Code Credit Support Server: [Join Here](https://discord.gg/fE75UShbqB)
+> Arbotix Codez Support Server: [Join Here](https://discord.gg/7wmb5x7qp4)
 >
 > Documentation URL: [Visit Here](https://docs.strangebot.xyz)
 
@@ -21,7 +22,7 @@
 * Open the terminal and run the following commands
 
 ```
-git clone https://github.com/saiteja-madha/discord-js-bot.git
+git clone https://github.com/Hjgaming/ALL-IN-ONE-BOT-WITH-DASHBOARD.git
 cd discord-js-bot
 npm install
 ```
@@ -67,5 +68,5 @@ A complete list of commands can be found in the [documentation](docs/commands/)
 ### 🤝 Contributing
 
 * Special thanks to [@Androzz](https://github.com/Androz2091/AtlantaBot) for the [dashboard](https://github.com/Androz2091/AtlantaBot) and his other cool discord bot projects
-* Feel free to [Fork](https://github.com/saiteja-madha/discord-js-bot/fork) this repository, create a feature branch and submit a pull request
+* Feel free to [Fork](https://github.com/Hjgaming/ALL-IN-ONE-BOT-WITH-DASHBOARD/fork) this repository, create a feature branch and submit a pull request
 * You can check all the planned features [here](https://github.com/saiteja-madha/discord-js-bot/projects) or make a request for one at our discord
